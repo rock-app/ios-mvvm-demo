@@ -18,5 +18,9 @@
     - ControlProperty
 
 
-## 参考文档：
-   [](http://rxmarbles.com/#findIndex)
+## 参考资料：
+  
+  1. <http://rxmarbles.com/#findIndex>
+  2. <http://community.rxswift.org/>
+  3. <https://beeth0ven.github.io/RxSwift-Chinese-Documentation/content/rxswift_core.html>
+  4. <https://github.com/ReactiveX/RxSwift/issues/729>
