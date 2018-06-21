@@ -16,3 +16,7 @@
 
     - ControlEvent
     - ControlProperty
+
+
+## 参考文档：
+   [](http://rxmarbles.com/#findIndex)
