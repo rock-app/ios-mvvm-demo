@@ -15,11 +15,11 @@ enum AuthRouter: APIConfiguration {
 
 extension AuthRouter {
     var method: HTTPMethod {
-        return .post
+        return .get
     }
     
     var path: String {
-        return "app/auth/login"
+        return "/user"
     }
     
     var parameters: APIParams {
@@ -27,9 +27,19 @@ extension AuthRouter {
     }
     
     var bodyParameters: [String : Any]? {
+//        switch self {
+//        case let .login(name, password):
+//            return ["mobile": name, "password": password]
+//        }
+        return nil
+    }
+    
+    var headers: [String : String]? {
         switch self {
         case let .login(name, password):
-            return ["mobile": name, "password": password]
+            guard let base64LoginString = String(format: "%@:%@", name, password)
+                .data(using: .utf8)?.base64EncodedString() else { return nil }
+            return ["Authorization": "Basic \(base64LoginString)"]
         }
     }
 }

@@ -12,6 +12,8 @@ class Token {
     
     static let key = "token"
     
+    static let headerKey = "Authorization"
+    
     static func setToken(token: HTTPCookie) {
         UserDefaults.standard.setValue(NSKeyedArchiver.archivedData(withRootObject: token), forKey: Token.key)
         UserDefaults.standard.synchronize()
@@ -26,6 +28,22 @@ class Token {
     
     static var current: HTTPCookie? {
         return getToken()
+    }
+    
+    static func setHeader(header: [String: String]?) {
+        UserDefaults.standard.setValue(header?[headerKey], forKeyPath: headerKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func getHeader() -> [String: String]? {
+        if let value = UserDefaults.standard.value(forKey: headerKey) as? String {
+            return [headerKey: value]
+        }
+        return nil
+    }
+    
+    static var currentHeader: [String: String]? {
+        return getHeader()
     }
     
 }

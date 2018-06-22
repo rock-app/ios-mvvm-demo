@@ -23,14 +23,17 @@ struct TokenPlugin: Plugin {
         }
     }
     func didReceiverResponse(_ response: DataResponse<Any>?) {
-        let condition = response?.request?.url?.absoluteString.contains("auth/login") ?? false
-        guard condition else { return }
+        guard let condition = response?.request?.url?.absoluteString else { return }
+        if condition != "https://api.github.com/user" { return }
         if let headerFields = response?.response?.allHeaderFields as? [String: String],
             let url = response?.request?.url {
             let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url)
             if let cookie = cookies.first {
                 Token.setToken(token: cookie)
             }
+        }
+        if let header = response?.request?.allHTTPHeaderFields, let value = header[Token.headerKey] {
+            Token.setHeader(header: [Token.headerKey: value])
         }
     }
 }

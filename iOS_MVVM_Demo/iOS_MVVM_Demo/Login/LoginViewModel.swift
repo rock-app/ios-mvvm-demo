@@ -21,9 +21,10 @@ final class LoginViewModel {
     
     func login() -> Observable<User> {
         return Networking.default
-        .request(AuthRouter.login(name: self.name.value, password: self.password.value))
+        .request(AuthRouter.login(name: self.name.value, password: self.password.value), [TokenPlugin(), PrintPlugin()])
         .unwrapper()
         .mapObject(type: User.self)
+        .skipWhile{ $0.id == nil }
     }
     
 }

@@ -81,14 +81,20 @@ final class Networking {
                     print("服务器返回错误信息====\(error.localizedDescription))")
                     observer.onNext(Result<NetResponse>.failure(NetworkError.alert(resp.response?.statusCode ?? -1)))
                 case let .success(value):
-                    if let json = value as? [String: Any] {
-                        if let resp = Mapper<NetResponse>().map(JSON: json) {
+                    if let json = value as? [String: Any], json["success"] != nil {
+                        if  let resp = Mapper<NetResponse>().map(JSON: json) {
                             if resp.success {
                                 observer.onNext(Result.success(resp))
                             } else {
                                 observer.onNext(Result.failure(NetworkError.toast(resp.message.first ?? "无法访问服务器")))
                             }
                         }
+                    } else {
+                        var netResp = NetResponse()
+                        netResp.success = true
+                        netResp.data = value
+                        netResp.message = []
+                        observer.onNext(Result.success(netResp))
                     }
                 }
             })

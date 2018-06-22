@@ -16,7 +16,7 @@ class ListController: UIViewController {
     
     @IBOutlet weak var dataTableView: UITableView!
     
-    var dataSource: [Resale] = []
+    var dataSource: [Repo] = []
     
     let viewModel = ListViewModel()
     
@@ -29,23 +29,23 @@ class ListController: UIViewController {
     }
     
     func configureTableView() {
-        dataTableView.register(UINib(nibName: "\(ResaleListCell.self)", bundle: nil), forCellReuseIdentifier: "\(ResaleListCell.self)")
+        dataTableView.register(UINib(nibName: "\(RepoCell.self)", bundle: nil), forCellReuseIdentifier: "\(RepoCell.self)")
         dataTableView.separatorStyle = .none
         dataTableView.dataSource = self
         dataTableView.delegate = self
         
         dataTableView.rx.refresh
             .flatMapLatest { _ in self.viewModel.refresh() }
-            .subscribe(onNext: { (resales: [Resale]) in
-                self.dataSource = resales
+            .subscribe(onNext: { (repos: [Repo]) in
+                self.dataSource = repos
                 self.dataTableView.reloadData()
                 self.dataTableView.mj_header.endRefreshing()
             }).disposed(by: disposeBag)
         dataTableView.rx.loadmore
             .flatMapLatest { _ in self.viewModel.refresh(false) }
             .scan(dataSource) { self.dataSource + $1 }
-            .subscribe(onNext: { (resales: [Resale]) in
-                self.dataSource = resales.count == 0 ? self.dataSource : resales
+            .subscribe(onNext: { (repos: [Repo]) in
+                self.dataSource = repos.count == 0 ? self.dataSource : repos
                 self.dataTableView.reloadData()
                 self.dataTableView.mj_footer.endRefreshing()
             }).disposed(by: disposeBag)
@@ -70,7 +70,7 @@ extension ListController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(ResaleListCell.self)") as? ResaleListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(RepoCell.self)") as? RepoCell
         cell?.display(for: dataSource[indexPath.section])
         return cell!
     }

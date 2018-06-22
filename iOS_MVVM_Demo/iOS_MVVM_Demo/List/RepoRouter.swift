@@ -31,33 +31,33 @@ struct CarsalePageModel: Mappable {
     }
 }
 
-enum ResaleRouter: APIConfiguration {
-    case resales(pagingFilter: CarsalePageModel)
+enum RepoRouter: APIConfiguration {
+    case repos
 }
 
-extension ResaleRouter {
+extension RepoRouter {
     var method: HTTPMethod {
-        return .post
+        return .get
     }
     
     var path: String {
         var url = ""
         switch self {
-        case .resales:
-            url = "app/888888/carsales/resalebill/resalebills"
+        case .repos:
+            url = "/user/repos"
             return url
         }
     }
     
     var parameters: APIParams {
-        switch self {
-        case let .resales(pagingFilter):
-            return pagingFilter.toJSON()
-        }
-//        return nil
+        return nil
     }
     
     var bodyParameters: [String : Any]? {
-        return ["fetchLine": true]
+        return nil
+    }
+    
+    var headers: [String : String]? {
+        return Token.currentHeader
     }
 }

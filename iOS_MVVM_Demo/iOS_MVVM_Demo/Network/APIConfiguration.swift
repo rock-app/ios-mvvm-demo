@@ -16,18 +16,38 @@ protocol APIConfiguration: URLRequestConvertible {
     var path: String { get }
     var parameters: APIParams { get }
     var bodyParameters: [String: Any]? { get }
+    var headers: [String: String]? { get }
+}
+
+extension APIConfiguration {
+    var headers: [String: String]? {
+        return nil
+    }
 }
 
 extension APIConfiguration {
     
     func asURLRequest() throws -> URLRequest {
         
-        let url = URL(string: "http://bee-test.qianfan123.com:8008/dfm-web/s/")
-        var urlRequest = URLRequest(url: (url?.appendingPathComponent(path))!)
+        guard let serverURLString = Bundle.main.object(forInfoDictionaryKey: "ServerURL") as? String else {
+            throw NSError(domain: "server url is null", code: -1)
+        }
+        let optionalURL = URL(string: serverURLString)
+        guard let url = optionalURL?.appendingPathComponent(path) else {
+            throw NSError(domain: "url invalid", code: -1)
+        }
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        
+        if let validHeaders = headers {
+            validHeaders.keys.forEach { key in
+                if let value = validHeaders[key] {
+                    urlRequest.setValue(value, forHTTPHeaderField: key)
+                }
+            }
+        }
+       
         //traceId
 //        var traceId = UUID().uuidString
 //        if let userId = SessionMgr.instance.getUser()?.id {

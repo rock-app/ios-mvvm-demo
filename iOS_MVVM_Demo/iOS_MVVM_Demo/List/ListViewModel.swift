@@ -19,12 +19,12 @@ final class ListViewModel {
         
     }
     
-    func refresh(_ isRefresh: Bool = true) -> Observable<[Resale]> {
+    func refresh(_ isRefresh: Bool = true) -> Observable<[Repo]> {
         pagingFilter.page = isRefresh ? 0 : (pagingFilter.page + 1)
         return Networking.default
-            .request(ResaleRouter.resales(pagingFilter: pagingFilter))
+            .request(RepoRouter.repos)
             .unwrapper()
             .doOnNext{ (resp) in self.more.value = resp?.more ?? false }
-            .mapArray(type: Resale.self)
+            .mapArray(type: Repo.self)
     }
 }

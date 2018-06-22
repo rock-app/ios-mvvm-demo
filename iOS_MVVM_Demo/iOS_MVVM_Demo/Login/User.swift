@@ -11,27 +11,27 @@ import Foundation
 import ObjectMapper
 
 struct User: Mappable {
-    // 运营商
-    var epId: String?
-    // 姓名
+    
+    var id: Int?
+    var url: String?
     var name: String?
-    // 手机号
-    var mobile: String?
-    // 拼音
-    var pinyin: String?
-    // 性别
-    var gender: String?
+    var email: String?
+    var repos: String?
+    var bio: String?
+    var blog: String?
     
     init?(map: Map) {
         mapping(map: map)
     }
     
     mutating func mapping(map: Map) {
-        epId <- map["epId"]
+        id <- map["id"]
         name <- map["name"]
-        mobile <- map["mobile"]
-        pinyin <- map["pinyin"]
-        gender <- map["gender"]
+        url <- map["url"]
+        email <- map["email"]
+        repos <- map["public_repos"]
+        bio <- map["bio"]
+        blog <- map["blog"]
     }
 
 }
