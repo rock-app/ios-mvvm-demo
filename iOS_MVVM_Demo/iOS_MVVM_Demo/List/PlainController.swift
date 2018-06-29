@@ -22,12 +22,12 @@ class PlainController: UIViewController {
         super.viewDidLoad()
 
         
-        viewModel.refresh().bind(to: tableView.rx.items(cellIdentifier: "PlainCell", cellType: PlainCell.self)) { (index, item, cell) in
+        viewModel.refresh()
+            .bind(to: tableView.rx.items(cellIdentifier: "PlainCell", cellType: PlainCell.self)) { (index, item, cell) in
             cell.item = item
         }.disposed(by: disposeBag)
         
         tableView.estimatedRowHeight = 100
-        
         // Do any additional setup after loading the view.
     }
 
