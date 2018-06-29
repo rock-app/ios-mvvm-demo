@@ -14,11 +14,11 @@ import MJRefresh
 
 
 
-class ListController: UIViewController {
+class GroupedListController: UIViewController {
     
     @IBOutlet weak var dataTableView: UITableView!
     
-    let viewModel = ListViewModel()
+    let viewModel = GroupedViewModel()
     
     let disposeBag = DisposeBag()
     

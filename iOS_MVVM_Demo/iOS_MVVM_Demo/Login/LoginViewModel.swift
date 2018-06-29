@@ -27,4 +27,18 @@ final class LoginViewModel {
         .skipWhile{ $0.id == nil }
     }
     
+    func save() {
+        UserDefaults.standard.set(name.value, forKey: "name")
+        UserDefaults.standard.set(password.value, forKey: "password")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func auto() {
+        if let nameValue = UserDefaults.standard.value(forKey: "name") as? String,
+            let passwordValue = UserDefaults.standard.value(forKey: "password") as? String {
+            name.value = nameValue
+            password.value = passwordValue
+        }
+    }
+    
 }

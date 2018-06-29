@@ -45,22 +45,31 @@ class LoginController: UIViewController {
         loginButton.rx.tap.asObservable()
             .throttle(0.3, scheduler: MainScheduler.instance)
             .flatMapLatest {_ in self.viewModel.login() }
-            .doOnNext { _ in self.performSegue(withIdentifier: "loginSegue", sender: nil)}
+            .doOnNext { _ in
+                self.viewModel.save()
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
             .subscribe().disposed(by: disposeBag)
         nameTextField.rx.text
-            .orEmpty.asDriver().drive(viewModel.name)
+            .orEmpty.asDriver()
+            .drive(viewModel.name)
             .disposed(by: disposeBag)
         viewModel.name
             .asDriver()
             .drive(nameTextField.rx.text)
             .disposed(by: disposeBag)
         passwordTextField.rx.text
-            .orEmpty.asObservable()
-            .bind(to: viewModel.password)
+            .orEmpty.asDriver()
+            .drive(viewModel.password)
             .disposed(by: disposeBag)
+        viewModel.password
+            .asDriver()
+            .drive(passwordTextField.rx.text)
+            .disposed(by: disposeBag)
+        
         Observable<Bool>
-            .combineLatest(nameTextField.rx.text.asObservable(), passwordTextField.rx.text.asObservable()) { (name, password) -> Bool in
-                return (name?.utf8.count)! > 4 && (password?.utf8.count)! >= 6 }
+            .combineLatest(self.viewModel.name.asObservable(), self.viewModel.password.asObservable()) { (name, password) -> Bool in
+                return name.utf8.count > 4 && password.utf8.count >= 6 }
             .bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
@@ -78,6 +87,8 @@ class LoginController: UIViewController {
                     self.view.layoutIfNeeded()
                 }, completion: nil) }
             .subscribe().disposed(by: disposeBag)
+        
+        viewModel.auto()
     }
     
     @IBAction func didClick(_  : UITapGestureRecognizer) {

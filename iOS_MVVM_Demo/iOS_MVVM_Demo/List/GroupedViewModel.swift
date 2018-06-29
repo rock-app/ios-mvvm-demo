@@ -24,13 +24,15 @@ struct RepoSection: SectionModelType {
     
 }
 
-final class ListViewModel {
+final class GroupedViewModel {
     
     var pagingFilter = CarsalePageModel()
     
     var more: Variable<Bool> = Variable<Bool>(false)
     
     var sections = BehaviorRelay<[RepoSection]>(value: [])
+    
+    
     
     init() {
         

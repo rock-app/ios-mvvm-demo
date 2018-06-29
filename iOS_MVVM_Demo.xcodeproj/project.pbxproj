@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78137AE020E6153100241EC6 /* PlainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78137ADF20E6153100241EC6 /* PlainController.swift */; };
+		78137AE220E615EE00241EC6 /* PlainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78137AE120E615EE00241EC6 /* PlainCell.swift */; };
+		78137AE420E618C500241EC6 /* PlainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78137AE320E618C500241EC6 /* PlainViewModel.swift */; };
 		7828ACCB20DB9C0600CFD409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828ACCA20DB9C0600CFD409 /* AppDelegate.swift */; };
 		78DA22A920DB93EC003B22E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78DA22A720DB93EC003B22E6 /* LaunchScreen.storyboard */; };
 		78DA22E020DB94D7003B22E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78DA22DE20DB94D7003B22E6 /* Main.storyboard */; };
@@ -25,9 +28,9 @@
 		78DA233420DB9626003B22E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA231F20DB9626003B22E6 /* User.swift */; };
 		78DA233520DB9626003B22E6 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232020DB9626003B22E6 /* AuthRouter.swift */; };
 		78DA233620DB9626003B22E6 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232220DB9626003B22E6 /* RepoCell.swift */; };
-		78DA233720DB9626003B22E6 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232320DB9626003B22E6 /* ListController.swift */; };
+		78DA233720DB9626003B22E6 /* GroupedListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232320DB9626003B22E6 /* GroupedListController.swift */; };
 		78DA233820DB9626003B22E6 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232420DB9626003B22E6 /* Repo.swift */; };
-		78DA233920DB9626003B22E6 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232520DB9626003B22E6 /* ListViewModel.swift */; };
+		78DA233920DB9626003B22E6 /* GroupedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232520DB9626003B22E6 /* GroupedViewModel.swift */; };
 		78DA233A20DB9626003B22E6 /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78DA232620DB9626003B22E6 /* RepoCell.xib */; };
 		78DA233B20DB9626003B22E6 /* RepoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA232720DB9626003B22E6 /* RepoRouter.swift */; };
 		C8C30430EB2261726DAB0D7E /* Pods_iOS_MVVM_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AAD10D1DD07068CC83CCE6 /* Pods_iOS_MVVM_Demo.framework */; };
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		00EB93EC09FE93070BB3F4BF /* Pods-iOS_MVVM_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_MVVM_Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_MVVM_Demo/Pods-iOS_MVVM_Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		03AAD10D1DD07068CC83CCE6 /* Pods_iOS_MVVM_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_MVVM_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78137ADF20E6153100241EC6 /* PlainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainController.swift; sourceTree = "<group>"; };
+		78137AE120E615EE00241EC6 /* PlainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainCell.swift; sourceTree = "<group>"; };
+		78137AE320E618C500241EC6 /* PlainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainViewModel.swift; sourceTree = "<group>"; };
 		7828ACCA20DB9C0600CFD409 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = iOS_MVVM_Demo/AppDelegate.swift; sourceTree = "<group>"; };
 		78DA229B20DB93EA003B22E6 /* iOS_MVVM_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_MVVM_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DA22A820DB93EC003B22E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,9 +62,9 @@
 		78DA231F20DB9626003B22E6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		78DA232020DB9626003B22E6 /* AuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		78DA232220DB9626003B22E6 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
-		78DA232320DB9626003B22E6 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		78DA232320DB9626003B22E6 /* GroupedListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedListController.swift; sourceTree = "<group>"; };
 		78DA232420DB9626003B22E6 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
-		78DA232520DB9626003B22E6 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		78DA232520DB9626003B22E6 /* GroupedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedViewModel.swift; sourceTree = "<group>"; };
 		78DA232620DB9626003B22E6 /* RepoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
 		78DA232720DB9626003B22E6 /* RepoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoRouter.swift; sourceTree = "<group>"; };
 		B261B04E1F1E3FA9BA42EDDC /* Pods-iOS_MVVM_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_MVVM_Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_MVVM_Demo/Pods-iOS_MVVM_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,11 +182,14 @@
 		78DA232120DB9626003B22E6 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				78DA232320DB9626003B22E6 /* ListController.swift */,
-				78DA232520DB9626003B22E6 /* ListViewModel.swift */,
+				78DA232320DB9626003B22E6 /* GroupedListController.swift */,
+				78137ADF20E6153100241EC6 /* PlainController.swift */,
+				78DA232520DB9626003B22E6 /* GroupedViewModel.swift */,
+				78137AE320E618C500241EC6 /* PlainViewModel.swift */,
 				78DA232420DB9626003B22E6 /* Repo.swift */,
 				78DA232620DB9626003B22E6 /* RepoCell.xib */,
 				78DA232220DB9626003B22E6 /* RepoCell.swift */,
+				78137AE120E615EE00241EC6 /* PlainCell.swift */,
 				78DA232720DB9626003B22E6 /* RepoRouter.swift */,
 			);
 			name = List;
@@ -316,22 +325,25 @@
 			files = (
 				78DA233120DB9626003B22E6 /* Observable+operator.swift in Sources */,
 				78DA233620DB9626003B22E6 /* RepoCell.swift in Sources */,
+				78137AE220E615EE00241EC6 /* PlainCell.swift in Sources */,
 				78DA232A20DB9626003B22E6 /* Token.swift in Sources */,
 				78DA233020DB9626003B22E6 /* UITableView+Rx.swift in Sources */,
 				78DA232820DB9626003B22E6 /* APIConfiguration.swift in Sources */,
 				78DA232B20DB9626003B22E6 /* Plugin.swift in Sources */,
-				78DA233920DB9626003B22E6 /* ListViewModel.swift in Sources */,
+				78DA233920DB9626003B22E6 /* GroupedViewModel.swift in Sources */,
 				78DA232F20DB9626003B22E6 /* UIImage.swift in Sources */,
 				78DA233B20DB9626003B22E6 /* RepoRouter.swift in Sources */,
 				78DA232920DB9626003B22E6 /* Networking.swift in Sources */,
 				78DA232E20DB9626003B22E6 /* KeyBoard.swift in Sources */,
+				78137AE020E6153100241EC6 /* PlainController.swift in Sources */,
 				78DA233220DB9626003B22E6 /* LoginViewModel.swift in Sources */,
 				7828ACCB20DB9C0600CFD409 /* AppDelegate.swift in Sources */,
 				78DA233320DB9626003B22E6 /* LoginController.swift in Sources */,
 				78DA233820DB9626003B22E6 /* Repo.swift in Sources */,
 				78DA233520DB9626003B22E6 /* AuthRouter.swift in Sources */,
+				78137AE420E618C500241EC6 /* PlainViewModel.swift in Sources */,
 				78DA233420DB9626003B22E6 /* User.swift in Sources */,
-				78DA233720DB9626003B22E6 /* ListController.swift in Sources */,
+				78DA233720DB9626003B22E6 /* GroupedListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
