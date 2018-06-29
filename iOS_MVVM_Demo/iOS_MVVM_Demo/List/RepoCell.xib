@@ -14,7 +14,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RepoCell" rowHeight="128" id="KGk-i7-Jjw" userLabel="RepoCell" customClass="RepoCell" customModule="iOS_MVVM_Demo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -89,6 +89,7 @@
                     <constraint firstItem="Rqe-vd-XBs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Twv-Zb-bZ8"/>
                     <constraint firstItem="Ito-uc-00g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="WDW-Dj-Fcc"/>
                     <constraint firstAttribute="trailing" secondItem="emm-58-G2Q" secondAttribute="trailing" constant="12" id="hPa-60-Ggr"/>
+                    <constraint firstAttribute="bottom" secondItem="n1o-GD-sHN" secondAttribute="bottom" constant="10" id="kws-OL-UsN"/>
                     <constraint firstItem="n1o-GD-sHN" firstAttribute="leading" secondItem="ok4-Gg-6YK" secondAttribute="leading" id="lQ2-Z8-Rnh"/>
                     <constraint firstAttribute="trailing" secondItem="Ito-uc-00g" secondAttribute="trailing" id="lcf-sc-vHa"/>
                     <constraint firstItem="4ek-W6-rgP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="q1S-hU-zNT"/>
@@ -102,7 +103,7 @@
                 <outlet property="starCountLabel" destination="4ek-W6-rgP" id="1MT-fq-bgY"/>
                 <outlet property="totalLabel" destination="n1o-GD-sHN" id="V7d-7v-IjT"/>
             </connections>
-            <point key="canvasLocation" x="-508" y="63"/>
+            <point key="canvasLocation" x="-229" y="66"/>
         </tableViewCell>
     </objects>
 </document>
